@@ -11,7 +11,7 @@ import {NavLink} from "react-router-dom"
 
 export default function Detail() {
     const { id } = useParams()
-    const API_KEY = 'api_key=61330235259d30ec7f0c37b884800e04'
+    const API_KEY = 'api_key=b7aa21e32bd3a1f8cbfe8069739600a0'
     const BASE_URL = 'https://api.themoviedb.org/3/'
     const PARAMS = '&language=en-US&page=1'
 
@@ -97,11 +97,13 @@ export default function Detail() {
         <div className="detailContainer">
             <div className="top">
                 <img src={"https://image.tmdb.org/t/p/w400" + movie.backdrop_path} alt={movie.title}/>
+                {/* <a onClick={() => window.history.back()} href='#'> */}
                 <NavLink to="/home">
                     <IconContext.Provider value={{className: "iconReturn"}}>
                         <HiArrowLeft/>
                     </IconContext.Provider>
                 </NavLink>
+                {/* </a> */}
                 <IconContext.Provider value={{size: "15vw", className: "iconPlay"}}>
                     <HiPlay />
                 </IconContext.Provider>
@@ -127,6 +129,10 @@ export default function Detail() {
                     <p className="titleDate">Release date</p>
                     <div>
                         <p className="textDate">{movie.release_date}</p>
+                        {/* <p className="textDate">{movie.release_date.substring(5,7)}</p>
+                        <p className="textDate">{movie.release_date.substring(8,10)}</p>
+                        <span>, </span>
+                        <p className="textDate">{movie.release_date.substring(0,4)}</p> */}
                     </div>
                 </div>
                 <div className="genreGroup">
@@ -141,6 +147,8 @@ export default function Detail() {
                 <p className="desTitle">Synopsis</p>
                 <p className="desText">
                     {movie.overview}
+                    {/* { readMore ? movie.overview : overview.substring(0,200)}
+                    <ButtonReadmore/> */}
                 </p>
             </div>
             <div className="moreMovieGroup">
